@@ -10,7 +10,7 @@
   <packaging>jar</packaging>
 
   <name>VirtualSMS Java SDK</name>
-  <description>Native Java client for the VirtualSMS REST API v1 — SMS verification numbers, rentals, and proxies on demand.</description>
+  <description>Official Java client for the VirtualSMS REST API: SMS verification, dedicated number rentals, and matching-country proxies on real carrier-issued mobile numbers, not VoIP, across 2500+ services in 145+ countries.</description>
   <url>https://virtualsms.io</url>
 
   <licenses>
