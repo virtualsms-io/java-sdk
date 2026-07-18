@@ -107,32 +107,34 @@
         </executions>
       </plugin>
 
-      <!-- GPG-signs every artifact; only runs when release profile is active
-           (activated by CI via -Prelease, using secrets.gpg.* env vars). -->
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-gpg-plugin</artifactId>
-        <version>3.2.5</version>
-        <executions>
-          <execution>
-            <id>sign-artifacts</id>
-            <phase>verify</phase>
-            <goals>
-              <goal>sign</goal>
-            </goals>
-          </execution>
-        </executions>
-      </plugin>
     </plugins>
   </build>
 
   <profiles>
     <profile>
       <!-- Only active on CI tag-triggered publish (see .github/workflows/publish.yml),
-           which passes -Prelease. Keeps `mvn install`/`mvn test` GPG-free for local dev. -->
+           which passes -Prelease. Keeps `mvn install`/`mvn verify`/`mvn test`
+           GPG-free (and Sonatype-publish-free) for local dev and plain CI. -->
       <id>release</id>
       <build>
         <plugins>
+          <!-- GPG-signs every artifact; only runs when release profile is active
+               (activated by CI via -Prelease, using secrets.gpg.* env vars). -->
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-gpg-plugin</artifactId>
+            <version>3.2.5</version>
+            <executions>
+              <execution>
+                <id>sign-artifacts</id>
+                <phase>verify</phase>
+                <goals>
+                  <goal>sign</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
+
           <!-- Publishes to Maven Central via the Sonatype Central Portal. -->
           <plugin>
             <groupId>org.sonatype.central</groupId>
