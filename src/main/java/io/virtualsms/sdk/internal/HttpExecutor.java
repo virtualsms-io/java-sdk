@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 import io.virtualsms.sdk.exceptions.ApiException;
 import io.virtualsms.sdk.exceptions.BadApiKeyException;
 import io.virtualsms.sdk.exceptions.InsufficientBalanceException;
+import io.virtualsms.sdk.exceptions.NoNumbersException;
 import io.virtualsms.sdk.exceptions.NotFoundException;
 import io.virtualsms.sdk.exceptions.RateLimitedException;
 import io.virtualsms.sdk.exceptions.ServerErrorException;
@@ -151,6 +152,10 @@ public final class HttpExecutor {
                 return new RateLimitedException("Rate limit exceeded. Please slow down requests.");
             default:
                 if (status >= 500) {
+                    String lowerMessage = message.toLowerCase();
+                    if (lowerMessage.contains("out of stock") || lowerMessage.contains("no numbers")) {
+                        return new NoNumbersException("No numbers currently available: " + message, isMutating);
+                    }
                     String msg = isMutating
                             ? "VirtualSMS had a server error (" + status + ") on a request that may have made a " +
                               "purchase or changed state. DO NOT blindly retry: first verify with a read call " +
