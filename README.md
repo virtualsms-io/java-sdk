@@ -36,7 +36,8 @@ implementation 'io.virtualsms:sdk:2.0.0'
 
 ## Quickstart
 
-1. Get an API key at [virtualsms.io/dashboard](https://virtualsms.io/dashboard).
+<!-- TODO: re-point to /dashboard once the frontend migration ships -->
+1. Get an API key at [virtualsms.io](https://virtualsms.io).
 2. Buy a number, wait for the code:
 
 ```java
@@ -184,7 +185,7 @@ Yes. Creating a VirtualSMS account issues an API key immediately, at no cost. Yo
 
 - Website: [virtualsms.io](https://virtualsms.io)
 - Docs: [virtualsms.io/docs](https://virtualsms.io/docs)
-- Dashboard: [virtualsms.io/dashboard](https://virtualsms.io/dashboard)
+- Sign up: [virtualsms.io](https://virtualsms.io) (get your API key from the dashboard after signing up)
 - Maven Central: [search.maven.org](https://search.maven.org/artifact/io.virtualsms/sdk)
 
 Works with PHP, Node.js, TypeScript, Python, Ruby, .NET, Go, Rust, Swift, and Java, plus any
