@@ -31,9 +31,9 @@
   </developers>
 
   <scm>
-    <connection>scm:git:git://github.com/virtualsms-io/virtualsms-java-sdk.git</connection>
-    <developerConnection>scm:git:ssh://github.com:virtualsms-io/virtualsms-java-sdk.git</developerConnection>
-    <url>https://github.com/virtualsms-io/virtualsms-java-sdk</url>
+    <connection>scm:git:git://github.com/virtualsms-io/java-sdk.git</connection>
+    <developerConnection>scm:git:ssh://github.com:virtualsms-io/java-sdk.git</developerConnection>
+    <url>https://github.com/virtualsms-io/java-sdk</url>
     <tag>v2.0.0</tag>
   </scm>
 
