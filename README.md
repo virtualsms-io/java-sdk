@@ -1,11 +1,11 @@
 # VirtualSMS Java SDK
 
-Native Java client for the [VirtualSMS](https://virtualsms.io) REST API v1 — SMS
+Native Java client for the [VirtualSMS](https://virtualsms.io) REST API v1 -  SMS
 verification numbers, number rentals, and proxies on demand.
 
 > **v2.0.0 is a native REST v1 client.** It talks to `/api/v1/*` endpoints
 > directly. It is **not** a drop-in replacement for a legacy
-> sms-activate-compatible client library — that framing belonged to v1.x
+> sms-activate-compatible client library -  that framing belonged to v1.x
 > only and has been dropped.
 
 ## Install
@@ -83,11 +83,11 @@ all extending `VirtualSmsException`:
 
 | Exception | Cause |
 |---|---|
-| `BadApiKeyException` | HTTP 401 — invalid or missing key |
-| `InsufficientBalanceException` | HTTP 402 — top up your balance |
+| `BadApiKeyException` | HTTP 401 -  invalid or missing key |
+| `InsufficientBalanceException` | HTTP 402 -  top up your balance |
 | `NotFoundException` | HTTP 404 |
-| `RateLimitedException` | HTTP 429 — never auto-retried |
-| `ServerErrorException` | HTTP 5xx — check `isMutatingRequest()` before retrying |
+| `RateLimitedException` | HTTP 429 -  never auto-retried |
+| `ServerErrorException` | HTTP 5xx -  check `isMutatingRequest()` before retrying |
 | `ApiException` | any other 4xx |
 
 ```java
@@ -102,19 +102,19 @@ try {
 
 GET requests are retried automatically (up to 3 attempts, exponential
 backoff) on network failure or a 5xx. Mutating requests (POST/PUT/PATCH/
-DELETE) are **never** auto-retried — a 5xx on a purchase/cancel/rotate call
+DELETE) are **never** auto-retried -  a 5xx on a purchase/cancel/rotate call
 does not prove the operation failed server-side; verify with a read call
 first.
 
 ## Requirements
 
 - Java 17+
-- Jackson (`jackson-databind`) — the SDK's only runtime dependency
+- Jackson (`jackson-databind`) -  the SDK's only runtime dependency
 
 ## Rentals: two tiers
 
-- **Full Access** — local SIM inventory, usable for any service, longer durations.
-- **Platform** — sourced via our global supplier network, locked to one chosen service, short (24/72/168h) durations.
+- **Full Access** -  local SIM inventory, usable for any service, longer durations.
+- **Platform** -  sourced via our global supplier network, locked to one chosen service, short (24/72/168h) durations.
 
 Both tiers carry the same refund terms: full refund within 20 minutes of
 purchase and before the first SMS arrives.
